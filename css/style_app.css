@@ -74,11 +74,16 @@ body{
 .llamadas{
     flex: 3 1 auto;
     transition-duration: .4s;
-}
+} 
 .row{
     display: flex;
-    align-items: center;
+    align-items: center ;        
     align-content: center;
+    transition-duration: .5s;
+}
+
+.row:hover {
+    background-color: lightgray;
 }
 .icon{
     flex: 1 1 auto;
