@@ -106,12 +106,12 @@ function insertar(mensaje,para,fecha,bandera){
     var ref = db.collection('chat');
     //console.log(ref);
     //console.log(de+mensaje+para+fecha); 
-   /* ref.add({
+    ref.add(
       from:"Erick",
       message:mensaje,
       timestamp:fecha,
       to:para
-    });*/
+    });
     var nr=new Object();
     nr.from="Erick";
     nr.message=mensaje;
