@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App xChat</title>
     <link rel="stylesheet" href="css/style_app.css">
-    <script src="js/appjs.js"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-firestore.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script src="js/appjs.js"></script>
+
 </head>
-<body onscroll="muevescroll()">
+<!--<body onscroll="muevescroll()">    
     <div class="header">
         <div class="appname" onclick="duplicate()">ChatApp</div>
         <div class="space"></div>
@@ -125,5 +136,170 @@
             </div>
         </div>
     </div></div>
+</body>-->
+<body > 
+    <div class="header">
+        <div class="appname">ChatApp</div>
+        <div class="space"></div>
+        <div class="search"><img src="img/lupa.png"  alt="buscar" height="22px" width="22px" class="resalta"></div>
+        <div class="submenu"><img src="img/menu.png" alt="menu"   height="22px" width="22px" class="resalta"></div>
+    </div>    
+    <ul class="menu">
+        <li class="camara"   id='bottom-line' data-view="0">
+            <a href="#view0" class="enlace">
+                <img src="img/Camara.png"  alt="buscar" height="20px" width="20px" class="resalta">
+            </a>
+        </li>
+        <li class="chats"    id='bottom-line' data-view="1">
+            <a href="#view1" class="enlace"> 
+                Chats 
+            </a>
+        </li>
+        <li class="estados"  id='bottom-line' data-view="2">
+            <a href="#view2" class="enlace">
+                Estados 
+            </a>
+        </li>
+        <li class="llamadas" id='bottom-line' data-view="3" >
+            <a href="#view3" class="enlace">
+                Llamadas
+            </a>
+        </li>
+    </ul>
+    <div id="view0" class="contenedor" >Llama a camara de dispositivo</div>
+    <div id="view1" class="contenedor" style="display: inline;">
+        <!--<div class="manda-men">-->
+            <form id="send-message">
+                <div class="form">
+                    <div class="to">
+                        <select name="to" id="to">
+                            <option value="">Destinatario:</option>
+                            <option value="Erick">Erick</option>
+                            <option value="Irma">Irma</option>
+                            <option value="Hugo">Hugo</option>
+                            <option value="Alex">Alex</option>
+                            <option value="Joel">Joel</option>
+                            <option value="Jesus">Jesus</option>
+                            <option value="Tomas">Tomas</option>
+                            <option value="Edgardo">Edgardo</option>
+                            <option value="Alberto">Alberto</option>
+                        </select>
+                    </div>
+                    <div  class="message" >
+                        <input id="message" type="text" placeholder="Escribe un Mensaje">
+                    </div>
+                    
+            <div class="submit">
+                <div id="enviar" class="insert">Enviar </div>
+            </div>
+            </div>    
+        </form>
+        <!--</div>-->
+        <div id="principla" class="copy">
+            <!--    <div class="row" >
+                    <div class="icon">
+                        <img src="img/persona.png" height="30px" width="30px"  alt="Avatar">
+                    </div>
+                    <div class="content">
+                        <div class="top-row">
+                            <div class="chatname">Maestria</div>
+                            <div class="timedate">8:00 am</div>
+                        </div>
+                        <div class="boton-row">
+                            <div class="contactname">Erick: Hola</div>
+                            <div class="status">1</div>
+                        </div>    
+                    </div>
+                </div>-->
+            </div>
+    </div>
+    <div id="view2" class="contenedor">
+        <div  class="copy">
+            <div class="row" >
+                <div class="icon">
+                    <img src="img/persona.png" height="30px" width="30px"  alt="Avatar">
+                </div>
+                <div class="content">
+                    <div class="top-row">
+                        <div class="chatEstado">Mi estado</div>
+                    </div>
+                    <div class="boton-row">
+                        <div class="timedateestado">8:00 am</div>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="recientes">Recientes</div>
+            <div  id="recintes" class="copy">
+                <div class="row" >
+                    <div class="icon">
+                        <img src="img/persona.png" height="30px" width="30px"  alt="Avatar">
+                    </div>
+                    <div class="content">
+                        <div class="top-row">
+                            <div class="chatEstado">Mi estado</div>
+                        </div>
+                        <div class="boton-row">
+                            <div class="timedateestado">8:00 am</div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="vistos">Vistos</div>
+            <div  id="vistos" class="copy">
+                <div class="row" >
+                    <div class="icon">
+                        <img src="img/persona.png" height="30px" width="30px"  alt="Avatar">
+                    </div>
+                    <div class="content">
+                        <div class="top-row">
+                            <div class="chatEstado">Mi estado</div>
+                        </div>
+                        <div class="boton-row">
+                            <div class="timedateestado">8:00 am</div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="view3" class="contenedor"><div  class="copy">
+        <div class="row" >
+            <div class="icon">
+                <img src="img/persona.png" height="30px" width="30px"  alt="Avatar">
+            </div>
+            <div class="content2">
+                <div class="top-row2">
+                    <div class="contacto">Arturo</div>
+                    <div class="timedatellamada">8:00 am</div>
+                </div>
+                <div class="boton-row">
+                    <div class="llamada"><img src="img/tel.jpg" height="30px" width="30px"  alt="llamada"></div>
+                </div>    
+            </div>
+        </div>
+    </div></div>
+    <script>
+        // Your web app's Firebase configuration
+      /*  var firebaseConfig = {
+          apiKey: "AIzaSyAOjJh5tLTxrrSMMcmzg10hQLHAPJInAjk",
+          authDomain: "chatapp-2a11f.firebaseapp.com",
+          databaseURL: "https://chatapp-2a11f.firebaseio.com",
+          projectId: "chatapp-2a11f",
+          storageBucket: "chatapp-2a11f.appspot.com",
+          messagingSenderId: "157134947168",
+          appId: "1:157134947168:web:3304e879a09e45931a5405",
+          measurementId: "G-PCW5869LNL"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();*/
+
+        /*const db = firebase.firestore();
+        db.setting({ timestampsInSnapshorts: true});*/
+      </script>
 </body>
 </html>
